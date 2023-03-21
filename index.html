@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style type="text/css">
+        h1{
+            font-size: 100px;
+            text-align: center;
+            font-family: Verdana;
+            color: hsl(42, 90%, 36%);
+        }
+        button{
+            height: 20px;
+            width: 220px;
+            background-color: rgb(146, 143, 137);
+         
+            
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <!-- <body onload="showtime()">  -->
+     <body>
+        
+  
+         <button onclick="showtime()"  > hii Click me to see Current time</button>  
+     </br>
+     </br>
+
+        <button onclick="bodyBack()"  > hii Click me to change background</button> 
+    <h1>     
+    </h1>
+</body>
+<script>
+
+    function bodyBack()
+    {
+        document.body.style.backgroundColor= 'black';
+    }
+
+
+    function showtime(){
+        var d = new Date();
+        var h=d.getHours();
+        var m=d.getMinutes();
+        var s=d.getSeconds();
+        var session="AM";
+
+        h=(h<10)? "0"+h : h;
+        s=(s<10)? "0"+s : s;
+        m=(m<10)? "0"+m : m;
+        
+       if(h>=12)
+        {
+            session=pm;
+        }
+
+        if(h>12)
+        {
+            h=12-h;
+        }
+
+
+        var time=h+":"+m+":"+s+":"+session;
+        document.getElementsByTagName('h1')[0].innerText=time;
+        setTimeout(showtime,1000);
+
+    }
+</script>
+</html>
